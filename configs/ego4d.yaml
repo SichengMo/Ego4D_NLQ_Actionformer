@@ -1,0 +1,142 @@
+data:
+  batch_size: 16
+  dataset:
+    anno_file: ./data/ego4d/annotations/ego4d.json
+    clip_size: 32
+    clip_stride: 16
+    crop_ratio:
+    - 0.9
+    - 1.0
+    downsample_rate: null
+    jitter: null
+    max_text_len: 48
+    max_vid_len: 2304
+    name: ego4d
+    normalize: false
+    resize_scale: null
+    to_fixed_len: false
+    trunc_thresh: 0.6
+    vid_feat_dir: ./data/ego4d/fused_all
+  eval_split:
+  - val
+  num_workers: 10
+  train_split:
+  - train
+eval:
+  iou_thresh: 0.1
+  max_num_segs: 100
+  min_score: 0.001
+  nms_mode: soft_nms
+  pre_nms_thresh: 0.001
+  pre_nms_topk: 2000
+  seg_len_thresh: 0.1
+  sigma: 0.9
+  use_iou_score: false
+  voting_thresh: 0.95
+model:
+  common:
+    attn_pdrop: 0.2
+    embd_dim: 512
+    n_heads: 16
+    path_pdrop: 0.2
+    proj_pdrop: 0.2
+  head:
+    ada_type: adaattn
+    attn_pdrop: 0.2
+    embd_dim: 512
+    max_seq_len: 2304
+    mha_win_size: 9
+    n_fpn_levels: 6
+    n_heads: 16
+    n_layers: 2
+    norm_type: in
+    path_pdrop: 0.2
+    pe_type: 0
+    proj_pdrop: 0.2
+  neck:
+    ada_type: adaattn
+    attn_pdrop: 0.2
+    embd_dim: 512
+    max_seq_len: 2304
+    mha_win_size: 9
+    n_fpn_levels: 6
+    n_heads: 16
+    n_layers: 2
+    norm_type: in
+    path_pdrop: 0.2
+    pe_type: 0
+    prior_prob: 0
+    proj_pdrop: 0.2
+    with_ln: true
+  pt_gen:
+    max_seq_len: 9216
+    n_fpn_levels: 6
+    regression_range:
+    - - 0
+      - 8
+    - - 4
+      - 16
+    - - 8
+      - 32
+    - - 16
+      - 64
+    - - 32
+      - 128
+    - - 64
+      - 10000
+    use_offset: false
+  text_dim: 768
+  text_net:
+    attn_pdrop: 0.2
+    embd_dim: 512
+    in_dim: 768
+    latent_size: 32
+    max_seq_len: 48
+    n_heads: 16
+    n_layers: 5
+    path_pdrop: 0.2
+    pe_type: 0
+    proj_pdrop: 0.2
+  vid_dim: 4096
+  vid_net:
+    arch:
+    - 2
+    - 5
+    attn_pdrop: 0.2
+    embd_dim: 512
+    in_dim: 4096
+    max_seq_len: 2304
+    mha_win_size: 9
+    n_heads: 16
+    path_pdrop: 0.2
+    pe_type: 0
+    proj_pdrop: 0.2
+opt:
+  clip_grad_norm: 1.0
+  ema_momentum: 0.999
+  epochs: 10
+  gamma: 0.1
+  lr: 0.001
+  momentum: 0.9
+  optim_type: adamw
+  sched_type: cosine
+  steps: []
+  warmup_epochs: 5
+  weight_decay: 0.05
+seed: 1234567891
+train:
+  center_sampling: radius
+  center_sampling_radius: 3
+  cls_weight: 1.0
+  focal_alpha: 0.5
+  focal_gamma: 2.0
+  iou_beta: 0.1
+  iou_weight: 0.0
+  label_smoothing: 0.2
+  loss_norm: 150
+  loss_norm_momentum: 0.9
+  nce_temp: 0.07
+  nce_weight: 5.0
+  reg_gamma: null
+  reg_log_scale: false
+  reg_weight: 1.0
