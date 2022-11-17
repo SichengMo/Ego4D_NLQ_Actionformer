@@ -16,7 +16,7 @@ data:
     resize_scale: null
     to_fixed_len: false
     trunc_thresh: 0.6
-    vid_feat_dir: ./data/ego4d/fused_all
+    vid_feat_dir: ./data/ego4d/video_features/fusion
   eval_split:
   - val
   num_workers: 10
