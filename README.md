@@ -24,7 +24,7 @@ The structure of this code repo is heavily inspired by [ActionFormer](https://gi
 
 ## Dataset
 ### Ego4D NLQ
-* Download *ego_vlp_reshape.zip* from [this google drive link](https://uwmadison.box.com/). This file includes EgoVLP feature in pt format.
+* Download *ego_vlp_reshape.zip* from [this google drive link](https://drive.google.com/file/d/1MnurvQQsBRdm3fn7RT6vLLWCfFkzL7bL/view?usp=share_link). This file includes EgoVLP feature in pt format.
 * Download the official Slowfast and Omnivore features from [Ego4D official repo](https://github.com/facebookresearch/Ego4d/tree/main/ego4d/cli). 
 
 **Details** These are EgoVlP features extracted using [EgoVLP official code](https://github.com/showlab/EgoVLP). The features are extracted using clips of `16 frames` and a stride of `16 frames`. We reshaped these features to alien with Ego4D official slowfast features.
