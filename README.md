@@ -31,7 +31,6 @@ The structure of this code repo is heavily inspired by [ActionFormer](https://gi
 
 ## Quick Start
 * Follow data/DATA_README.md for prepare video features.
-**Unpack Features and Annotations**
 * Unpack the file under *./data/ego4d* (or elsewhere and link to *./data*).
 * The folder structure should look like
 ```
