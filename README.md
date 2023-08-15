@@ -20,7 +20,7 @@ The structure of this code repo is heavily inspired by [ActionFormer](https://gi
 * ./libs/utils: Utility functions for training, inference, and postprocessing.
 
 ## Installation
-* Follow INSTALL.md for installing necessary dependencies and compiling the code.
+* Follow [INSTALL.md](https://github.com/SichengMo/Ego4D_NLQ_Actionformer/blob/main/INSTALL.md) for installing necessary dependencies and compiling the code.
 
 ## Dataset
 ### Ego4D NLQ
@@ -30,7 +30,7 @@ The structure of this code repo is heavily inspired by [ActionFormer](https://gi
 **Details** These are EgoVlP features extracted using [EgoVLP official code](https://github.com/showlab/EgoVLP). The features are extracted using clips of `16 frames` and a stride of `16 frames`. We reshaped these features to align with Ego4D official slowfast features.
 
 ## Quick Start
-* Follow data/DATA_README.md for prepare video features.
+* Follow [data/DATA_README.md](https://github.com/SichengMo/Ego4D_NLQ_Actionformer/blob/main/data/DATA_README.md) for prepare video features.
 * Unpack the file under *./data/ego4d* (or elsewhere and link to *./data*).
 * The folder structure should look like
 ```
@@ -70,6 +70,12 @@ python ./eval.py -n ego4d -c last -ema
 * Generate submission file for Ego4D NLQ challenge.
 ```shell
 python ./submit.py -n ego4d -c last -ema 
+```
+
+**Reperduce Our Results**
+* Our checkpoint can be downloaded from [here](https://drive.google.com/file/d/1nBGREUVUM10sQI2cwMgONSDfS3TQYMT1/view?usp=sharing). You can download the checkpoint file, move it the to *./log* folder, and use the following command to reproduce our results. (If the data format is correct, the result should be: Rank@1, IoU@0.1 = 17.58 and Rank@1, IoU@0.3 = 9.76)
+```shell
+python ./eval.py -n ego4d -c 08 -ema 
 ```
 
 ## Contact
